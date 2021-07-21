@@ -17,7 +17,7 @@ class PurchaseOrderLine(models.Model):
         dictionary element with the field that you want to group by. This
         method is designed for extensibility, so that other modules can add
         additional keys or replace them by others."""
-        date = line.date_planned.date()
+        date = fields.Date.context_today(self.env.user, line.date_planned)
         # Split date value to obtain only the attributes year, month and day
         key = ({"date_planned": fields.Date.to_string(date)},)
         return key
@@ -37,7 +37,9 @@ class PurchaseOrderLine(models.Model):
         """Group the receptions in one picking per group key"""
         moves = self.env["stock.move"]
         # Group the order lines by group key
-        order_lines = sorted(self, key=lambda l: l.date_planned)
+        order_lines = sorted(
+            self.filtered(lambda l: not l.display_type), key=lambda l: l.date_planned
+        )
         date_groups = groupby(
             order_lines, lambda l: self._get_group_keys(l.order_id, l, picking=picking)
         )
@@ -72,6 +74,12 @@ class PurchaseOrderLine(models.Model):
             self.mapped("order_id")._check_split_pickings()
         return res
 
+    def create(self, values):
+        line = super().create(values)
+        if line.order_id.state == "purchase":
+            line.order_id._check_split_pickings()
+        return line
+
 
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
@@ -88,6 +96,7 @@ class PurchaseOrder(models.Model):
             pickings_by_date = {}
             for pick in pickings:
                 pickings_by_date[pick.scheduled_date.date()] = pick
+
             order_lines = moves.mapped("purchase_line_id")
             date_groups = groupby(
                 order_lines, lambda l: l._get_group_keys(l.order_id, l)
@@ -106,6 +115,7 @@ class PurchaseOrder(models.Model):
                             move._do_unreserve()
                             move.picking_id = pickings_by_date[date_key]
                             move.date_expected = date_key
+                            move._action_assign()
             for picking in pickings_by_date.values():
                 if len(picking.move_lines) == 0:
                     picking.write({"state": "cancel"})
