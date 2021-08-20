@@ -102,10 +102,11 @@
                     </div>
                     <h1>
                         <field name="is_editable" attrs="{'invisible': True}" />
+                        <field name="is_name_editable" invisible="1" />
                         <field
                             name="name"
                             class="oe_inline"
-                            attrs="{'readonly': [('is_editable','=', False)]}"
+                            attrs="{'readonly': [('is_name_editable','=', False)]}"
                         />
                     </h1>
                     <group>
@@ -292,6 +293,20 @@
                                     </sheet>
                                 </form>
                             </field>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="currency_id" invisible="1" />
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="estimated_cost" />
+                                </div>
+                                <field
+                                    name="estimated_cost"
+                                    nolabel="1"
+                                    class="oe_subtotal_footer_separator"
+                                    widget="monetary"
+                                    options="{'currency_field': 'currency_id'}"
+                                />
+                            </group>
+
                         </page>
                     </notebook>
                 </sheet>
@@ -324,6 +339,8 @@
                 />
                 <field name="activity_ids" widget="list_activity" optional="show" />
                 <field name="origin" />
+                <field name="currency_id" invisible="1" />
+                <field name="estimated_cost" optional="hide" />
                 <field
                     name="state"
                     widget="badge"
@@ -350,6 +367,7 @@
                     domain="[('assigned_to','=', False)]"
                     help="Unassigned Request"
                 />
+                <separator />
                 <filter
                     name="state_draft"
                     string="Draft"
@@ -380,6 +398,7 @@
                     domain="[('state','=','done')]"
                     help="Request is done"
                 />
+                <separator />
                 <filter
                     string="Unread Messages"
                     name="message_needaction"
@@ -456,7 +475,7 @@
     />
     <menuitem
         id="parent_menu_purchase_request"
-        name="Purchase requests"
+        name="Purchase Requests"
         web_icon="purchase_request,static/description/icon.png"
         groups="group_purchase_request_user,group_purchase_request_manager"
     />

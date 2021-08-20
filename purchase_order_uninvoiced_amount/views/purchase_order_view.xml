@@ -13,6 +13,7 @@
                     name="amount_uninvoiced"
                     sum="Total Uninvoiced amount"
                     widget="monetary"
+                    optional="show"
                 />
             </field>
         </field>
@@ -26,6 +27,7 @@
                     name="amount_uninvoiced"
                     sum="Total Uninvoiced amount"
                     widget="monetary"
+                    optional="show"
                 />
             </field>
         </field>

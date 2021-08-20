@@ -56,29 +56,32 @@ class PurchaseRequest(models.Model):
     name = fields.Char(
         string="Request Reference",
         required=True,
-        default=_get_default_name,
-        track_visibility="onchange",
+        default=lambda self: _("New"),
+        tracking=True,
+    )
+    is_name_editable = fields.Boolean(
+        default=lambda self: self.env.user.has_group("base.group_no_one"),
     )
     origin = fields.Char(string="Source Document")
     date_start = fields.Date(
         string="Creation date",
         help="Date when the user initiated the request.",
         default=fields.Date.context_today,
-        track_visibility="onchange",
+        tracking=True,
     )
     requested_by = fields.Many2one(
         comodel_name="res.users",
         string="Requested by",
         required=True,
         copy=False,
-        track_visibility="onchange",
+        tracking=True,
         default=_get_default_requested_by,
         index=True,
     )
     assigned_to = fields.Many2one(
         comodel_name="res.users",
         string="Approver",
-        track_visibility="onchange",
+        tracking=True,
         domain=lambda self: [
             (
                 "groups_id",
@@ -94,7 +97,7 @@ class PurchaseRequest(models.Model):
         string="Company",
         required=True,
         default=_company_get,
-        track_visibility="onchange",
+        tracking=True,
     )
     line_ids = fields.One2many(
         comodel_name="purchase.request.line",
@@ -102,7 +105,7 @@ class PurchaseRequest(models.Model):
         string="Products to Purchase",
         readonly=False,
         copy=True,
-        track_visibility="onchange",
+        tracking=True,
     )
     product_id = fields.Many2one(
         comodel_name="product.product",
@@ -114,7 +117,7 @@ class PurchaseRequest(models.Model):
         selection=_STATES,
         string="Status",
         index=True,
-        track_visibility="onchange",
+        tracking=True,
         required=True,
         copy=False,
         default="draft",
@@ -146,9 +149,17 @@ class PurchaseRequest(models.Model):
     purchase_count = fields.Integer(
         string="Purchases count", compute="_compute_purchase_count", readonly=True
     )
+    currency_id = fields.Many2one(related="company_id.currency_id", readonly=True)
+    estimated_cost = fields.Monetary(
+        compute="_compute_estimated_cost",
+        string="Total Estimated Cost",
+        store=True,
+    )
 
-    def _valid_field_parameter(self, field, name):
-        return name == "track_visibility" or super()._valid_field_parameter(field, name)
+    @api.depends("line_ids", "line_ids.estimated_cost")
+    def _compute_estimated_cost(self):
+        for rec in self:
+            rec.estimated_cost = sum(rec.line_ids.mapped("estimated_cost"))
 
     @api.depends("line_ids")
     def _compute_purchase_count(self):
@@ -156,7 +167,7 @@ class PurchaseRequest(models.Model):
             rec.purchase_count = len(rec.mapped("line_ids.purchase_lines.order_id"))
 
     def action_view_purchase_order(self):
-        action = self.env.ref("purchase.purchase_rfq").read()[0]
+        action = self.env.ref("purchase.purchase_rfq").sudo().read()[0]
         lines = self.mapped("line_ids.purchase_lines.order_id")
         if len(lines) > 1:
             action["domain"] = [("id", "in", lines.ids)]
@@ -175,7 +186,7 @@ class PurchaseRequest(models.Model):
             )
 
     def action_view_stock_move(self):
-        action = self.env.ref("stock.stock_move_action").read()[0]
+        action = self.env.ref("stock.stock_move_action").sudo().read()[0]
         # remove default filters
         action["context"] = {}
         lines = self.mapped("line_ids.purchase_request_allocation_ids.stock_move_id")
@@ -192,9 +203,11 @@ class PurchaseRequest(models.Model):
             rec.line_count = len(rec.mapped("line_ids"))
 
     def action_view_purchase_request_line(self):
-        action = self.env.ref(
-            "purchase_request.purchase_request_line_form_action"
-        ).read()[0]
+        action = (
+            self.env.ref("purchase_request.purchase_request_line_form_action")
+            .sudo()
+            .read()[0]
+        )
         lines = self.mapped("line_ids")
         if len(lines) > 1:
             action["domain"] = [("id", "in", lines.ids)]
@@ -225,6 +238,8 @@ class PurchaseRequest(models.Model):
 
     @api.model
     def create(self, vals):
+        if vals.get("name", _("New")) == _("New"):
+            vals["name"] = self._get_default_name()
         request = super(PurchaseRequest, self).create(vals)
         if vals.get("assigned_to"):
             partner_id = self._get_partner_id(request)

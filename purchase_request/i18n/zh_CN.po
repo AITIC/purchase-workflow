@@ -342,6 +342,7 @@ msgid "Creation date"
 msgstr "创建日期"
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__currency_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__currency_id
 msgid "Currency"
 msgstr "币别"
@@ -526,6 +527,11 @@ msgid "Is Follower"
 msgstr "是关注者"
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__is_name_editable
+msgid "Is Name Editable"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__is_editable
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__is_editable
 msgid "Is editable"
@@ -610,10 +616,22 @@ msgid "Minimum Inventory Rule"
 msgstr "最小库存规则"
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__my_activity_date_deadline
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_search
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_search
 msgid "My requests"
 msgstr "我的请购单"
+
+#. module: purchase_request
+#: code:addons/purchase_request/models/purchase_request.py:0
+#, python-format
+msgid "New"
+msgstr ""
 
 #. module: purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_line_make_purchase_order
@@ -919,6 +937,7 @@ msgstr "请购待批准"
 #: model:ir.ui.menu,name:purchase_request.menu_purchase_request
 #: model:ir.ui.menu,name:purchase_request.menu_purchase_request_act
 #: model:ir.ui.menu,name:purchase_request.menu_purchase_request_pro_mgt
+#: model:ir.ui.menu,name:purchase_request.parent_menu_purchase_request
 msgid "Purchase Requests"
 msgstr "请购单"
 
@@ -927,11 +946,6 @@ msgstr "请购单"
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_search
 msgid "Purchase Status"
 msgstr "采购状态"
-
-#. module: purchase_request
-#: model:ir.ui.menu,name:purchase_request.parent_menu_purchase_request
-msgid "Purchase requests"
-msgstr "采购请求"
 
 #. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__purchase_count
@@ -1295,6 +1309,11 @@ msgid "To be approved"
 msgstr "待批准通过"
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__estimated_cost
+msgid "Total Estimated Cost"
+msgstr ""
+
+#. module: purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_form
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_form
 msgid "Tracking"
@@ -1421,6 +1440,9 @@ msgstr "您必须选择相同作业类型的请购明细。"
 #, python-format
 msgid "You have to select lines from the same company."
 msgstr "您必须选择同一个公司的请购明细。"
+
+#~ msgid "Purchase requests"
+#~ msgstr "采购请求"
 
 #~ msgid "Product Unit of Measure"
 #~ msgstr "计量单位"

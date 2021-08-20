@@ -330,6 +330,7 @@ msgid "Creation date"
 msgstr "Datum nastanka"
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__currency_id
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__currency_id
 msgid "Currency"
 msgstr ""
@@ -515,6 +516,11 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__is_name_editable
+msgid "Is Name Editable"
+msgstr ""
+
+#. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__is_editable
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__is_editable
 msgid "Is editable"
@@ -600,9 +606,21 @@ msgid "Minimum Inventory Rule"
 msgstr ""
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__my_activity_date_deadline
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_search
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_search
 msgid "My requests"
+msgstr ""
+
+#. module: purchase_request
+#: code:addons/purchase_request/models/purchase_request.py:0
+#, python-format
+msgid "New"
 msgstr ""
 
 #. module: purchase_request
@@ -927,6 +945,7 @@ msgstr "Nabavne zahteve za odobritev"
 #: model:ir.ui.menu,name:purchase_request.menu_purchase_request
 #: model:ir.ui.menu,name:purchase_request.menu_purchase_request_act
 #: model:ir.ui.menu,name:purchase_request.menu_purchase_request_pro_mgt
+#: model:ir.ui.menu,name:purchase_request.parent_menu_purchase_request
 msgid "Purchase Requests"
 msgstr "Nabavne zahteve"
 
@@ -936,11 +955,6 @@ msgstr "Nabavne zahteve"
 #, fuzzy
 msgid "Purchase Status"
 msgstr "Zahteva po nabavi"
-
-#. module: purchase_request
-#: model:ir.ui.menu,name:purchase_request.parent_menu_purchase_request
-msgid "Purchase requests"
-msgstr "Nabavne zahteve"
 
 #. module: purchase_request
 #: model:ir.model.fields,field_description:purchase_request.field_purchase_request__purchase_count
@@ -1311,6 +1325,11 @@ msgid "To be approved"
 msgstr "Za odobritev"
 
 #. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__estimated_cost
+msgid "Total Estimated Cost"
+msgstr ""
+
+#. module: purchase_request
 #: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_form
 #: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_form
 msgid "Tracking"
@@ -1439,6 +1458,9 @@ msgstr ""
 #, python-format
 msgid "You have to select lines from the same company."
 msgstr ""
+
+#~ msgid "Purchase requests"
+#~ msgstr "Nabavne zahteve"
 
 #~ msgid "Product Unit of Measure"
 #~ msgstr "EM proizvoda"
