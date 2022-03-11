@@ -2,6 +2,9 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0).
 
 from odoo import _, api, exceptions, fields, models
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class PurchaseOrder(models.Model):
@@ -60,11 +63,14 @@ class PurchaseOrder(models.Model):
     def _purchase_request_line_check(self):
         for po in self:
             for line in po.order_line:
+                _logger.info("Prueba: Etapa 1")
                 for request_line in line.sudo().purchase_request_lines:
+                    _logger.info("Prueba: Etapa 1 Dentro del For")
                     if request_line.sudo().purchase_state == 'done':
                         raise exceptions.UserError(
                             _('Purchase Request %s has already '
                               'been completed') % request_line.request_id.name)
+                    _logger.info("Prueba: Etapa 1 Despues del For")
         return True
 
     @api.multi
