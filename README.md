@@ -33,6 +33,7 @@ addon | version | maintainers | summary
 [purchase_default_terms_conditions](purchase_default_terms_conditions/) | 15.0.1.0.2 |  | This module allows purchase default terms & conditions
 [purchase_delivery_split_date](purchase_delivery_split_date/) | 15.0.1.0.0 |  | Allows Purchase Order you confirm to generate one Incoming Shipment for each expected date indicated in the Purchase Order Lines
 [purchase_deposit](purchase_deposit/) | 15.0.1.1.0 |  | Option to create deposit from purchase order
+[purchase_deposit_analytic](purchase_deposit_analytic/) | 15.0.1.0.0 | [![Saran440](https://github.com/Saran440.png?size=30px)](https://github.com/Saran440) | Add analytic on wizard register deposit
 [purchase_discount](purchase_discount/) | 15.0.1.2.0 |  | Purchase order lines with discounts
 [purchase_exception](purchase_exception/) | 15.0.1.0.0 |  | Custom exceptions on purchase order
 [purchase_fop_shipping](purchase_fop_shipping/) | 15.0.1.0.0 |  | Purchase Free-Of-Payment shipping
@@ -82,7 +83,7 @@ addon | version | maintainers | summary
 [purchase_reception_notify](purchase_reception_notify/) | 15.0.1.0.0 |  | Purchase Reception Notify
 [purchase_reception_status](purchase_reception_status/) | 15.0.1.0.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Add reception status on purchase orders
 [purchase_representative](purchase_representative/) | 15.0.1.0.0 |  | Purchase Representatives will be the point of contact for RFQ's and PO's
-[purchase_request](purchase_request/) | 15.0.1.1.2 |  | Use this module to have notification of requirements of materials and/or external services and keep track of such requirements.
+[purchase_request](purchase_request/) | 15.0.1.1.3 |  | Use this module to have notification of requirements of materials and/or external services and keep track of such requirements.
 [purchase_request_department](purchase_request_department/) | 15.0.1.0.0 |  | Purchase Request Department
 [purchase_request_exception](purchase_request_exception/) | 15.0.1.0.0 |  | Custom exceptions on purchase request
 [purchase_request_substate](purchase_request_substate/) | 15.0.1.0.0 |  | Purchase Request Sub State
