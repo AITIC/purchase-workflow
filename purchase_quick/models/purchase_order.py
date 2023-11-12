@@ -4,6 +4,8 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
+from collections import OrderedDict
+
 from odoo import _, models
 from odoo.exceptions import ValidationError
 
@@ -39,16 +41,23 @@ class PurchaseOrder(models.Model):
             raise ValidationError(
                 _(
                     "Must have only 1 line per product for mass addition, but "
-                    "there are {} lines for the product {}"
-                ).format(nr_lines, product.display_name),
+                    "there are {nr_lines}s lines for the product %(product)s"
+                )
+                % {
+                    "nr_lines": nr_lines,
+                    "product": product.display_name,
+                }
             )
         return result
 
     def _get_quick_line_qty_vals(self, product):
-        return {
-            "product_uom": product.quick_uom_id.id,
-            "product_qty": product.qty_to_process,
-        }
+        return OrderedDict(
+            {
+                "product_id": None,
+                "product_uom": product.quick_uom_id.id,
+                "product_qty": product.qty_to_process,
+            }
+        )
 
     def _complete_quick_line_vals(self, vals, lines_key=""):
         # This params are need for playing correctly the onchange
