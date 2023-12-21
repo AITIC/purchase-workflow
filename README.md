@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[procurement_purchase_no_grouping](procurement_purchase_no_grouping/) | 15.0.1.0.2 |  | Procurement Purchase No Grouping
+[procurement_purchase_no_grouping](procurement_purchase_no_grouping/) | 15.0.1.1.0 |  | Procurement Purchase No Grouping
 [procurement_purchase_sale_no_grouping](procurement_purchase_sale_no_grouping/) | 15.0.1.0.0 |  | Procurement Purchase Service No Grouping
 [product_form_purchase_link](product_form_purchase_link/) | 15.0.1.1.0 | [![rousseldenis](https://github.com/rousseldenis.png?size=30px)](https://github.com/rousseldenis) | Add an option to display the purchases lines from product
 [product_supplier_code_purchase](product_supplier_code_purchase/) | 15.0.1.0.0 |  | This module adds to the purchase order line the supplier code defined in the product.
@@ -34,7 +34,7 @@ addon | version | maintainers | summary
 [purchase_delivery_split_date](purchase_delivery_split_date/) | 15.0.1.0.0 |  | Allows Purchase Order you confirm to generate one Incoming Shipment for each expected date indicated in the Purchase Order Lines
 [purchase_deposit](purchase_deposit/) | 15.0.1.1.0 |  | Option to create deposit from purchase order
 [purchase_deposit_analytic](purchase_deposit_analytic/) | 15.0.1.0.0 | [![Saran440](https://github.com/Saran440.png?size=30px)](https://github.com/Saran440) | Add analytic on wizard register deposit
-[purchase_discount](purchase_discount/) | 15.0.1.2.3 |  | Purchase order lines with discounts
+[purchase_discount](purchase_discount/) | 15.0.2.0.0 |  | Purchase order lines with discounts
 [purchase_exception](purchase_exception/) | 15.0.1.0.0 |  | Custom exceptions on purchase order
 [purchase_fop_shipping](purchase_fop_shipping/) | 15.0.1.0.0 |  | Purchase Free-Of-Payment shipping
 [purchase_force_invoiced](purchase_force_invoiced/) | 15.0.1.0.2 |  | Allows to force the billing status of the purchase order to "Invoiced"
@@ -42,14 +42,15 @@ addon | version | maintainers | summary
 [purchase_fully_received](purchase_fully_received/) | 15.0.1.0.0 |  | Useful filters in Purchases to know the actual status of shipments.and invoices
 [purchase_invoice_method](purchase_invoice_method/) | 15.0.1.0.0 |  | Allow to force the invoice method of a purchase
 [purchase_invoice_plan](purchase_invoice_plan/) | 15.0.1.0.2 | [![kittiu](https://github.com/kittiu.png?size=30px)](https://github.com/kittiu) | Add to purchases order, ability to manage future invoice plan
-[purchase_last_price_info](purchase_last_price_info/) | 15.0.2.0.1 | [![LoisRForgeFlow](https://github.com/LoisRForgeFlow.png?size=30px)](https://github.com/LoisRForgeFlow) | Purchase Product Last Price Info
+[purchase_last_price_info](purchase_last_price_info/) | 15.0.2.0.2 | [![LoisRForgeFlow](https://github.com/LoisRForgeFlow.png?size=30px)](https://github.com/LoisRForgeFlow) | Purchase Product Last Price Info
 [purchase_line_reassign](purchase_line_reassign/) | 15.0.1.0.0 |  | Purchase Line Reassign
 [purchase_location_by_line](purchase_location_by_line/) | 15.0.1.0.0 |  | Allows to define a specific destination location on each PO line
+[purchase_manual_currency](purchase_manual_currency/) | 15.0.1.0.0 |  | Allows to manual currency of Purchase
 [purchase_merge](purchase_merge/) | 15.0.1.0.1 |  | Wizard to merge purchase with required conditions
 [purchase_open_qty](purchase_open_qty/) | 15.0.2.0.1 |  | Allows to identify the purchase orders that have quantities pending to invoice or to receive.
 [purchase_order_analytic_search](purchase_order_analytic_search/) | 15.0.1.0.0 |  | Search purchase orders by analytic account. New menu entry in Purchasing to list purchase order lines.
 [purchase_order_approved](purchase_order_approved/) | 15.0.1.0.0 |  | Add a new state 'Approved' in purchase orders.
-[purchase_order_general_discount](purchase_order_general_discount/) | 15.0.1.0.1 |  | General discount per purchase order
+[purchase_order_general_discount](purchase_order_general_discount/) | 15.0.1.0.2 |  | General discount per purchase order
 [purchase_order_line_deep_sort](purchase_order_line_deep_sort/) | 15.0.1.0.0 |  | Purchase Order Line Sort
 [purchase_order_line_menu](purchase_order_line_menu/) | 15.0.1.2.0 |  | Adds Purchase Order Lines Menu
 [purchase_order_line_price_history](purchase_order_line_price_history/) | 15.0.1.0.1 |  | Purchase order line price history
@@ -58,7 +59,7 @@ addon | version | maintainers | summary
 [purchase_order_line_sequence](purchase_order_line_sequence/) | 15.0.1.0.1 |  | Adds sequence to PO lines and propagates it toInvoice lines and Stock Moves
 [purchase_order_line_stock_available](purchase_order_line_stock_available/) | 15.0.1.0.0 |  | Purchase order line stock available
 [purchase_order_no_zero_price](purchase_order_no_zero_price/) | 15.0.1.0.0 |  | Prevent zero price lines on Purchase Orders
-[purchase_order_product_recommendation](purchase_order_product_recommendation/) | 15.0.1.0.2 |  | Recommend products to buy to supplier based on history
+[purchase_order_product_recommendation](purchase_order_product_recommendation/) | 15.0.1.0.3 |  | Recommend products to buy to supplier based on history
 [purchase_order_product_recommendation_brand](purchase_order_product_recommendation_brand/) | 15.0.1.0.1 |  | Allow to filter recommendations by brand
 [purchase_order_product_recommendation_classification](purchase_order_product_recommendation_classification/) | 15.0.1.0.0 |  | Extends the purchase recomendator with classification filters
 [purchase_order_product_recommendation_forecast](purchase_order_product_recommendation_forecast/) | 15.0.1.0.0 |  | Obtain linear progression forecast from reference years
@@ -97,13 +98,13 @@ addon | version | maintainers | summary
 [purchase_security](purchase_security/) | 15.0.3.1.0 | [![pilarvargas-tecnativa](https://github.com/pilarvargas-tecnativa.png?size=30px)](https://github.com/pilarvargas-tecnativa) | See only your purchase orders
 [purchase_stock_price_unit_sync](purchase_stock_price_unit_sync/) | 15.0.1.0.4 |  | Update cost price in stock moves already done
 [purchase_stock_return_request](purchase_stock_return_request/) | 15.0.1.0.1 |  | Purchase Stock Return Request
-[purchase_stock_secondary_unit](purchase_stock_secondary_unit/) | 15.0.1.1.0 |  | Get product quantities in a secondary unit
+[purchase_stock_secondary_unit](purchase_stock_secondary_unit/) | 15.0.1.1.1 |  | Get product quantities in a secondary unit
 [purchase_stock_tier_validation](purchase_stock_tier_validation/) | 15.0.1.0.0 | [![bosd](https://github.com/bosd.png?size=30px)](https://github.com/bosd) | Exclude RFQs pending to validate when procuring
 [purchase_substate](purchase_substate/) | 15.0.1.0.0 |  | Purchase Sub State
 [purchase_tag](purchase_tag/) | 15.0.1.0.0 |  | Allows to add multiple tags to purchase orders
 [purchase_tier_validation](purchase_tier_validation/) | 15.0.1.1.0 |  | Extends the functionality of Purchase Orders to support a tier validation process.
 [purchase_total_ordered_qty](purchase_total_ordered_qty/) | 15.0.1.0.0 |  | Purchase - Total Ordered Qty
-[purchase_triple_discount](purchase_triple_discount/) | 15.0.1.1.0 |  | Manage triple discount on purchase order lines
+[purchase_triple_discount](purchase_triple_discount/) | 15.0.2.0.0 |  | Manage triple discount on purchase order lines
 [purchase_v12_control_menu](purchase_v12_control_menu/) | 15.0.1.0.0 |  | Purchase Control Menu from v12
 [purchase_warn_message](purchase_warn_message/) | 15.0.1.0.0 |  | Add a popup warning on purchase to ensure warning is populated
 [purchase_work_acceptance](purchase_work_acceptance/) | 15.0.1.1.1 | [![ps-tubtim](https://github.com/ps-tubtim.png?size=30px)](https://github.com/ps-tubtim) | Purchase Work Acceptance
