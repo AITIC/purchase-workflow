@@ -1,11 +1,12 @@
 # Copyright 2023 CreuBlanca
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests import Form
+from odoo.tests import Form, tagged
 
 from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 
 
+@tagged("post_install", "-at_install")
 class TestPurchaseInvoiceMethod(AccountTestInvoicingCommon):
     @classmethod
     def setUpClass(cls):
